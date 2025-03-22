@@ -2,14 +2,13 @@ import { Component } from '@angular/core';
 import { FooterComponent } from '../shared-components/footer/footer.component';
 import { HeaderComponent } from '../shared-components/header/header.component';
 
-
 @Component({
-  selector: 'app-landing-page',
+  selector: 'app-about-me',
   standalone: true,
   imports: [HeaderComponent, FooterComponent],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss'
+  templateUrl: './about-me.component.html',
+  styleUrl: './about-me.component.scss'
 })
-export class LandingPageComponent {
+export class AboutMeComponent {
 
 }

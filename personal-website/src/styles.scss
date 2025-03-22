@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "content content"
+    "footer footer";
+  grid-template-columns: 1fr;
+  gap: 5px;
+  padding: 5px;
+}
+
+.container > div {
+
+}
+
+.container > div.header {
+  grid-area: header;
+}
+.container > div.content {
+  grid-area: content;
+}
+.container > div.footer {
+  padding: 5px;
+  grid-area: footer;
+}
+
+#footer{
+  position:fixed;
+  bottom:0;
+  left: 0;
+ }
