@@ -1,4 +1,24 @@
 .landing-body {
   display: grid;
   justify-content: center;
+  gap: 5px;
+}
+
+h1 {
+  margin: 0;
+}
+
+
+.scroll-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;  /* Start with the button hidden */
+  transition: opacity 0.3s ease;  /* Smooth transition for showing/hiding */
+}
+
+.scroll-button.visible {
+  opacity: 1;  /* When the class is added, button becomes visible */
 }

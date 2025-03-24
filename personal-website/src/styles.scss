@@ -10,13 +10,15 @@
   width: 100%;
   position: fixed;
   left: 0 ;
+  overflow: scroll;
 }
 
 .container > div {
 }
 
 .container > div.header {
-  grid-area: header;
+  justify-self: end;
+  position: fixed;
   padding: 5px;
 }
 .container > div.content {
