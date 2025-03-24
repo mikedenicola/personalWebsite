@@ -2,9 +2,12 @@
   flex-direction:column;
   display: flex;
   border: 1px solid black;
-  gap:5px;
+  gap: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
 
 .footer-header{
-  margin-top: 0;
 }

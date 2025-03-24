@@ -5,16 +5,19 @@
     "content content"
     "footer footer";
   grid-template-columns: 1fr;
-  gap: 5px;
-  padding: 5px;
+  row-gap: 6.25rem;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0 ;
 }
 
 .container > div {
-
 }
 
 .container > div.header {
   grid-area: header;
+  padding: 5px;
 }
 .container > div.content {
   grid-area: content;
@@ -25,7 +28,4 @@
 }
 
 #footer{
-  position:fixed;
-  bottom:0;
-  left: 0;
  }
