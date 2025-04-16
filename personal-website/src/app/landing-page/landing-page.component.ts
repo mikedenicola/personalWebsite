@@ -1,13 +1,11 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, viewChild, ViewChild } from '@angular/core';
-import { FooterComponent } from '../shared-components/footer/footer.component';
-import { HeaderComponent } from '../shared-components/header/header.component';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent],
+  imports: [],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })

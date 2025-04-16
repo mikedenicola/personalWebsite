@@ -19,13 +19,13 @@
 .container > div.header {
   justify-self: end;
   position: fixed;
-  padding: 5px;
+  padding: 30px;
 }
 .container > div.content {
   grid-area: content;
 }
 .container > div.footer {
-  padding: 5px;
+  margin-bottom: 5px;
   grid-area: footer;
 }
 

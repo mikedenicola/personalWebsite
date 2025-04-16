@@ -1,6 +1,8 @@
-.landing-body {
-  display: grid;
-  justify-content: center;
+.intro-body {
+  gap: 5px;
+}
+
+.project-body {
   gap: 5px;
 }
 
@@ -21,4 +23,19 @@ h1 {
 
 .scroll-button.visible {
   opacity: 1;  /* When the class is added, button becomes visible */
+}
+
+.header {
+  display: flex;
+  border: 1px solid black;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: end;
+  top:0;
+  width: 100%;
+}
+
+#header-flex-container {
+  display: flex;
+  gap: 10px;
 }
