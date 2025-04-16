@@ -4,8 +4,8 @@
     <!-- HEADER -->
     <div class="header">
       <div id="header-flex-container">
-        <button id="buttons"> About Me </button>
-        <button id="buttons"> Projects </button>
+        <button id="buttons" (click)="jumpToAbout()"> About Me </button>
+        <button id="buttons"  (click)="jumpToProjects()"> Projects </button>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
     <div class="content">
       <ng-container>
         <div class="intro-body">
-          <div>
+          <div id="Intro">
             Introduction
           </div>
           <h1>Michael Denicola</h1>
@@ -28,7 +28,7 @@
       </ng-container>
 
       <ng-container>
-        <div class="project-body">
+        <div  id="Projects" class="project-body">
           <h1>Projects</h1>
           <div>
             SOMETHING ABOUT PROJECTS
