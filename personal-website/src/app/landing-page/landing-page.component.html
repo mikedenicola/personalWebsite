@@ -1,4 +1,4 @@
-<ng-container>
+<ng-container style="height: 100%;">
   <div #homeContainer class="container">
 
     <!-- HEADER -->
@@ -13,10 +13,12 @@
     <div class="content">
       <ng-container>
         <div class="intro-body">
-          <div id="Intro">
-            Introduction
+          <h1 id="Intro">
+            Michael Denicola
+          </h1>
+          <div>
+            Full Stack Engineer
           </div>
-          <h1>Michael Denicola</h1>
           <div>
             I'm a full stack software developer, with 3 years of professional experience, working
             <br>
@@ -28,10 +30,23 @@
       </ng-container>
 
       <ng-container>
-        <div  id="Projects" class="project-body">
+        <div id="Projects"  class="project-container">
           <h1>Projects</h1>
-          <div>
-            SOMETHING ABOUT PROJECTS
+          <div class="project-body">
+            <div>
+             Portfolio -
+            </div>
+              <div>
+                <iframe
+                    src="http://localhost:4200/"
+                    width="600"
+                    height="300"
+                    frameborder="1"
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    allowfullscreen
+                ></iframe>
+            </div>
           </div>
         </div>
       </ng-container>
@@ -40,16 +55,23 @@
     <!-- FOOTER -->
     <div id="footer" class="footer">
       <ng-container>
-        <div id="flex-container">
+        <div id="footer-flex-container">
           <h1 class="footer-header">Contact Me</h1>
+          <!-- Contact -->
           <div>
             Phone: (631)-346-9229
           </div>
           <div>
             Email : denicolamichael99&#64;gmail.com
           </div>
-          <div>
-            LinkedIn: PLACE LINK HERE
+         <!-- Links -->
+          <div style="margin-top: 10px;">
+            <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
+              <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="logos">
+            </a>
+            <a href="https://github.com/mikedenicola" target="_blank">
+              <img src="assets/github-mark-white.png" alt="Github Logo" class="logos">
+            </a>
           </div>
         </div>
       </ng-container>

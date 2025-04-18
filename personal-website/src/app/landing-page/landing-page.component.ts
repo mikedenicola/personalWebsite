@@ -77,7 +77,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   jumpToProjects() {
     const projectSection = this.document.getElementById('Projects');
     projectSection?.scrollIntoView({
-      behavior: 'smooth',
+      behavior: 'smooth'
     });
   }
 }
