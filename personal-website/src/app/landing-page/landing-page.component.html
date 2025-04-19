@@ -1,5 +1,22 @@
 <ng-container style="height: 100%;">
+
+
+
+    <!-- General Todo
+    style page
+      color theory
+    -->
+
   <div #homeContainer class="container">
+
+
+    <!-- Header Todo
+    style buttons
+    style header card
+      -shadow
+      -depth
+    Logo?
+    -->
 
     <!-- HEADER -->
     <div class="header">
@@ -11,6 +28,23 @@
 
     <!-- CONTENT -->
     <div class="content">
+
+
+    <!-- Imagery Todo
+    add Imagery
+    -->
+      <!-- Imagery -->
+      <div style="align-self: center;"> PLACHOLER FOR IMAGES</div>
+
+
+
+    <!-- Intro Todo
+    style text
+    Fix general alignment
+    Add vertical carosel for tech stack
+    -->
+
+
       <ng-container>
         <div class="intro-body">
           <h1 id="Intro">
@@ -28,6 +62,16 @@
           </div>
         </div>
       </ng-container>
+
+
+    <!-- Projects Todo
+    style text
+    Fix header alignment
+    fix Iframe
+      -check for iframe to swap for github link
+      -horizontal scroll
+    add more to come
+    -->
 
       <ng-container>
         <div id="Projects"  class="project-container">
@@ -52,33 +96,48 @@
       </ng-container>
     </div>
 
+
+    <!-- Footer Todo
+    style text
+    style card border
+      -shadow
+      -create depth
+      -color
+    copy functionality for phone and email
+    make email open email message
+    -->
+
     <!-- FOOTER -->
     <div id="footer" class="footer">
       <ng-container>
-        <div id="footer-flex-container">
-          <h1 class="footer-header">Contact Me</h1>
-          <!-- Contact -->
-          <div>
-            Phone: (631)-346-9229
+        <div class="footer-outer-container">
+
+
+          <div id="footer-flex-container">
+            <h1 class="footer-header">Contact Me</h1>
+            <!-- Contact -->
+            <div>
+              Phone: (631)-346-9229
+            </div>
+            <div>
+              Email : denicolamichael99&#64;gmail.com
+            </div>
+           <!-- Links -->
+            <div class="links-container">
+              <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
+                <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="links">
+              </a>
+              <a href="https://github.com/mikedenicola" target="_blank">
+                <img src="assets/github-mark-white.png" alt="Github Logo" class="links">
+              </a>
+            </div>
           </div>
-          <div>
-            Email : denicolamichael99&#64;gmail.com
-          </div>
-         <!-- Links -->
-          <div style="margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
-              <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="logos">
-            </a>
-            <a href="https://github.com/mikedenicola" target="_blank">
-              <img src="assets/github-mark-white.png" alt="Github Logo" class="logos">
-            </a>
-          </div>
+          <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></div>
         </div>
+
       </ng-container>
     </div>
-
   </div>
 </ng-container>
 
-<button class="scroll-button" #scrollTop (click)="scrollToTop()">Go to Top</button>
-
+<i class="ph ph-caret-double-up scroll-button" #scrollTop (click)="scrollToTop()"></i>

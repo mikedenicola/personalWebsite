@@ -59,7 +59,35 @@ h1 {
 }
 
 
-.logos {
+.links {
   height: 30px;
   width: 30px;
+}
+
+
+.links-container {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+
+
+.ph.ph-caret-double-up {
+  font-size: 20px;
+}
+
+
+.footer-outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.sourced-icons {
+  margin-bottom: 5px;
+  margin-right: 10px;
+  align-content: end;
 }
