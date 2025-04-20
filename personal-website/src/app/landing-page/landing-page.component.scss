@@ -23,7 +23,6 @@ h1 {
   margin: 0;
 }
 
-
 .scroll-button {
   position: fixed;
   bottom: 40px;
@@ -46,15 +45,33 @@ h1 {
   top: 0;
   width: 100%;
   background-color: #151414;
-  border-color: #fefdfd;
-  border-width: .1px;
+  border-color: #5f6a6a;
+  border-width: .5px;
   border-style: solid;
   border-top: hidden;
   border-right: hidden;
+  color: #fefdfd;
+}
+
+
+.gradient-text {
+  cursor: pointer;
+  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1s ease;
+}
+
+.gradient-text:hover {
+  background-position: right center;
 }
 
 #header-flex-container {
   display: flex;
+  justify-content: space-between;
+
   gap: 10px;
 }
 
@@ -65,12 +82,10 @@ h1 {
   padding-left: 10px;
 }
 
-
 .links {
   height: 30px;
   width: 30px;
 }
-
 
 .links-container {
   margin-top: 10px;
@@ -79,35 +94,34 @@ h1 {
   margin-bottom: 5px;
 }
 
-
-
 .ph.ph-caret-double-up {
   font-size: 20px;
   color: #fefdfd;
 }
 
 .ph.ph-caret-double-up:hover {
-  color: #662424;
+  color: #FA8072;
 }
-
-
 
 .ph.ph-copy:hover {
-  color: #662424;
+  color: #FA8072;
 }
 
+.ph.ph-copy:hover ~ .test{
+  color:#FA8072;
+}
 
 .footer-outer-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-color: #fefdfd;
+  border-color:  #5f6a6a;
   border-width: .5px;
   border-style: solid;
   border-right: hidden;
   border-left: hidden;
+  border-bottom: hidden;
 }
-
 
 .sourced-icons {
   margin-bottom: 5px;

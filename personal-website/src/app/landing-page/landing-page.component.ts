@@ -1,25 +1,17 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Inject,
-  OnDestroy,
-  OnInit,
-  PLATFORM_ID,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-
+import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [],
+  imports: [MatTooltipModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss',
 })
 export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   private scrollButton: HTMLElement | undefined;
   @ViewChild('homeContainer') scrollContainer!: ElementRef;
+  @ViewChild('tooltip') tooltip: MatTooltip | undefined;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -30,9 +22,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.scrollButton = this.document.querySelector(
-        '.scroll-button'
-      ) as HTMLElement;
+      this.scrollButton = this.document.querySelector('.scroll-button') as HTMLElement;
       this.scrollContainer.nativeElement.addEventListener('scroll', () => {
         this.handleScroll();
       });
@@ -69,19 +59,26 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   jumpToAbout() {
     const introSection = this.document.getElementById('Intro');
     introSection?.scrollIntoView({
-      behavior: 'smooth', block: "end"
+      behavior: 'smooth',
+      block: 'end',
     });
   }
 
+  //update name
   jumpToProjects() {
     const projectSection = this.document.getElementById('Projects');
     projectSection?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
-   copyText(id: string) {
-    const textToCopy = document.getElementById(id)!.textContent || '';
-    navigator.clipboard.writeText(textToCopy);
+  copyText(id: string, tooltip: MatTooltip) {
+    const textToCopy = this.document.getElementById(id)!.textContent || '';
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      tooltip.disabled = false;
+      tooltip.show();
+      setTimeout(() => tooltip.hide(), 1000);
+      setTimeout(() => tooltip.disabled = true, 1100);
+    });
   }
 }

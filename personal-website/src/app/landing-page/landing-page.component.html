@@ -1,11 +1,4 @@
-<ng-container style="height: 100%;">
-
-
-
-    <!-- General Todo
-    style page
-      color theory
-    -->
+<ng-container >
 
   <div #homeContainer class="container">
 
@@ -21,8 +14,17 @@
     <!-- HEADER -->
     <div class="header">
       <div id="header-flex-container">
-        <button id="buttons" (click)="jumpToAbout()"> About Me </button>
-        <button id="buttons"  (click)="jumpToProjects()"> Projects </button>
+        <div>
+          <h1 (click)="scrollToTop()"
+              class="gradient-text">
+          &lt;Denicola /&gt; </h1>
+        </div>
+
+        <div>
+          <button id="buttons" (click)="jumpToAbout()"> About Me </button>
+          <button id="buttons"  (click)="jumpToProjects()"> Tech Stack </button>
+        </div>
+
       </div>
     </div>
 
@@ -47,14 +49,14 @@
 
       <ng-container>
         <div class="intro-body">
-          <h1 id="Intro">
+          <h2 id="Intro">
             Michael Denicola
-          </h1>
+          </h2>
           <div>
             Full Stack Engineer
           </div>
           <div>
-            I'm a full stack software developer, with 3 years of professional experience, working
+            I'm a full stack software developer, with 3+ years of professional experience, working
             <br>
             with several development tools and languages, such as, Angular, Node.Js, Typescript,
             <br>
@@ -63,83 +65,46 @@
         </div>
       </ng-container>
 
-
-    <!-- Projects Todo - Maybe remove entinerly for now, Place tech stack here instead
-    style text
-    Fix header alignment
-    fix Iframe
-      -check for iframe to swap for github link
-      -horizontal scroll
-    add more to come
-    -->
-<!--
-       <ng-container>
-        <div id="Projects"  class="project-container">
-          <h1>Projects</h1>
-          <div class="project-body">
-            <div>
-             Portfolio -
-            </div>
-              <div>
-               <iframe
-                    src="http://localhost:4200/"
-                    width="600"
-                    height="300"
-                    frameborder="1"
-                    webkitallowfullscreen
-                    mozallowfullscreen
-                    allowfullscreen
-                ></iframe>
-           </div>
-          </div>
-        </div>
-      </ng-container> -->
-
-
    <!-- text stack -->
     <ng-container>
 
       <div class='project-body' id="Projects">
 
-             tech stack
+      <h3>Tech Stack</h3>
 
       </div>
 
-
     </ng-container>
-
-
-
-
 
     </div>
 
 
-    <!-- Footer Todo
-
-    style card border
-      -shadow
-      -create depth
-    add Copied! tooltip
-    add bold text on hover 
-
-    make email open email message
-    -->
+    <!-- Footer Todo Look into hover changing multiple elements -->
 
     <!-- FOOTER -->
     <div id="footer" class="footer">
       <ng-container>
         <div class="footer-outer-container">
-
-
           <div id="footer-flex-container">
             <h1 class="footer-header">Contact Me</h1>
             <!-- Contact -->
             <div>
-              Phone : <span id="phone-number"> (631)-346-9229 </span> <i class="ph ph-copy" (click)="copyText('phone-number')"></i>
+              Phone : <span id="phone-number"
+                            class="test"> (631)-346-9229 </span>
+                      <i class="ph ph-copy"
+                          (click)="copyText('phone-number', phonetooltip)"
+                          #phonetooltip="matTooltip"
+                          [matTooltipDisabled]="true"
+                          matTooltip="Copied to clipboard!"></i>
             </div>
             <div>
-              Email : <span id="email"> denicolamichael99&#64;gmail.com </span><i class="ph ph-copy" (click)="copyText('email')"></i>
+              Email : <a  href="mailto:denicolamichael99@gmail.com?subject=your title"
+                          id="email" target="_blank" style="margin-right: 3px;"> denicolamichael99&#64;gmail.com</a>
+                      <i class="ph ph-copy"
+                          (click)="copyText('email', emailtooltip)"
+                          #emailtooltip="matTooltip"
+                          [matTooltipDisabled]="true"
+                          matTooltip="Copied to clipboard!"></i>
             </div>
            <!-- Links -->
             <div class="links-container">
@@ -153,7 +118,6 @@
           </div>
           <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></div>
         </div>
-
       </ng-container>
     </div>
   </div>
