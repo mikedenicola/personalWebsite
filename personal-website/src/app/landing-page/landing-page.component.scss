@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: #fefdfd;
 }
 
 .project-body {
   display: flex;
   flex-direction: row;
   gap: 40px;
+  color: #fefdfd;
 }
 
 .project-container {
@@ -43,7 +45,12 @@ h1 {
   justify-content: end;
   top: 0;
   width: 100%;
-  background-color: darkgrey;
+  background-color: #151414;
+  border-color: #fefdfd;
+  border-width: .1px;
+  border-style: solid;
+  border-top: hidden;
+  border-right: hidden;
 }
 
 #header-flex-container {
@@ -76,6 +83,17 @@ h1 {
 
 .ph.ph-caret-double-up {
   font-size: 20px;
+  color: #fefdfd;
+}
+
+.ph.ph-caret-double-up:hover {
+  color: #662424;
+}
+
+
+
+.ph.ph-copy:hover {
+  color: #662424;
 }
 
 
@@ -83,6 +101,11 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-color: #fefdfd;
+  border-width: .5px;
+  border-style: solid;
+  border-right: hidden;
+  border-left: hidden;
 }
 
 

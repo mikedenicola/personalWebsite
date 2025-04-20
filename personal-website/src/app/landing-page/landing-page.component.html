@@ -64,7 +64,7 @@
       </ng-container>
 
 
-    <!-- Projects Todo
+    <!-- Projects Todo - Maybe remove entinerly for now, Place tech stack here instead
     style text
     Fix header alignment
     fix Iframe
@@ -72,8 +72,8 @@
       -horizontal scroll
     add more to come
     -->
-
-      <ng-container>
+<!--
+       <ng-container>
         <div id="Projects"  class="project-container">
           <h1>Projects</h1>
           <div class="project-body">
@@ -81,7 +81,7 @@
              Portfolio -
             </div>
               <div>
-                <iframe
+               <iframe
                     src="http://localhost:4200/"
                     width="600"
                     height="300"
@@ -90,20 +90,39 @@
                     mozallowfullscreen
                     allowfullscreen
                 ></iframe>
-            </div>
+           </div>
           </div>
         </div>
-      </ng-container>
+      </ng-container> -->
+
+
+   <!-- text stack -->
+    <ng-container>
+
+      <div class='project-body' id="Projects">
+
+             tech stack
+
+      </div>
+
+
+    </ng-container>
+
+
+
+
+
     </div>
 
 
     <!-- Footer Todo
-    style text
+
     style card border
       -shadow
       -create depth
-      -color
-    copy functionality for phone and email
+    add Copied! tooltip
+    add bold text on hover 
+
     make email open email message
     -->
 
@@ -117,10 +136,10 @@
             <h1 class="footer-header">Contact Me</h1>
             <!-- Contact -->
             <div>
-              Phone: (631)-346-9229
+              Phone : <span id="phone-number"> (631)-346-9229 </span> <i class="ph ph-copy" (click)="copyText('phone-number')"></i>
             </div>
             <div>
-              Email : denicolamichael99&#64;gmail.com
+              Email : <span id="email"> denicolamichael99&#64;gmail.com </span><i class="ph ph-copy" (click)="copyText('email')"></i>
             </div>
            <!-- Links -->
             <div class="links-container">

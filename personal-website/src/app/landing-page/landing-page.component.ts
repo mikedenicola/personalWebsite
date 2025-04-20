@@ -6,7 +6,6 @@ import {
   OnDestroy,
   OnInit,
   PLATFORM_ID,
-  viewChild,
   ViewChild,
 } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
@@ -37,7 +36,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.scrollContainer.nativeElement.addEventListener('scroll', () => {
         this.handleScroll();
       });
-    }
+    };
   }
 
   ngOnDestroy(): void {
@@ -46,7 +45,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
         'scroll',
         this.handleScroll
       );
-    }
+    };
   }
 
   handleScroll = (): void => {
@@ -55,7 +54,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.scrollButton?.classList.add('visible');
     } else {
       this.scrollButton?.classList.remove('visible');
-    }
+    };
   };
 
   scrollToTop() {
@@ -64,7 +63,7 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
         top: 0,
         behavior: 'smooth',
       });
-    }
+    };
   }
 
   jumpToAbout() {
@@ -79,5 +78,10 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
     projectSection?.scrollIntoView({
       behavior: 'smooth'
     });
+  }
+
+   copyText(id: string) {
+    const textToCopy = document.getElementById(id)!.textContent || '';
+    navigator.clipboard.writeText(textToCopy);
   }
 }
