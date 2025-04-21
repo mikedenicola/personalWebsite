@@ -1,48 +1,9 @@
-.intro-body {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #fefdfd;
-}
-
-.project-body {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  color: #fefdfd;
-}
-
-.project-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
+// Header
 h1 {
   margin: 0;
 }
 
-.scroll-button {
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 0;  /* Start with the button hidden */
-  transition: opacity 0.3s ease;  /* Smooth transition for showing/hiding */
-}
-
-.scroll-button.visible {
-  opacity: 1;
-}
-
 .header {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: end;
-  top: 0;
   width: 100%;
   background-color: #151414;
   border-color: #5f6a6a;
@@ -51,8 +12,38 @@ h1 {
   border-top: hidden;
   border-right: hidden;
   color: #fefdfd;
+  z-index: 1000;
 }
 
+.header-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 12px;
+}
+
+#buttons {
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: #fefdfd;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+#buttons:hover {
+  background: linear-gradient(70deg, #FA8072, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1s ease;
+  font-size: 16px;
+}
 
 .gradient-text {
   cursor: pointer;
@@ -62,17 +53,199 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: background-position 1s ease;
+  margin-left: 50px;
 }
 
 .gradient-text:hover {
   background-position: right center;
 }
 
-#header-flex-container {
+// Intro
+.intro-body {
   display: flex;
-  justify-content: space-between;
-
+  flex-direction: column;
   gap: 10px;
+  color: #fefdfd;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+.intro-question {
+  font-size: 18px;
+  align-items: baseline;
+}
+
+.intro-description {
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0;
+}
+
+#Intro {
+  font-size: 70px;
+  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+//Experience
+.experience-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fefdfd;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+// Stack
+h3 {
+ font-size: 70px;
+ margin-bottom: 0;
+ background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+ background-size: 200%;
+ background-position: left center;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.tech-header {
+  align-self: flex-end;
+  margin-right: 100px;
+}
+
+.tech-body-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.tech-body-text {
+  align-self: flex-end;
+  margin-right: 100px;
+  font-size: 18px;
+  gap: 40px;
+}
+
+.ph.ph-caret-double-left {
+  font-size: 30px;
+}
+
+.ph.ph-caret-double-left:hover {
+  font-size: 33px;
+  background: linear-gradient(40deg, #FA8072, #7873f5);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ph.ph-caret-double-right {
+  font-size: 30px;
+}
+
+.ph.ph-caret-double-right:hover {
+  font-size: 33px;
+  background: linear-gradient(40deg, #FA8072, #7873f5);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stack-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #fefdfd;
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.carousel-track {
+  position: relative;
+  width: 600px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.carousel-card {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transition: all 1s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  z-index: 0;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Positioning classes */
+.center {
+  transform: translateX(0) translateZ(50px) scale(1.05);
+  opacity: 1;
+  z-index: 3;
+}
+
+.left-1 {
+  transform: translateX(-180px) scale(0.9);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.left-2 {
+  transform: translateX(-360px) scale(0.8);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.right-1 {
+  transform: translateX(180px) scale(0.9);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.right-2 {
+  transform: translateX(360px) scale(0.8);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.offscreen {
+  transform: translateX(1000px) scale(0.5);
+  opacity: 0;
+  z-index: 0;
+}
+
+// Footer
+.footer-outer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-color:  #5f6a6a;
+  border-width: .5px;
+  border-style: solid;
+  border-right: hidden;
+  border-left: hidden;
+  border-bottom: hidden;
 }
 
 #footer-flex-container {
@@ -100,31 +273,55 @@ h1 {
 }
 
 .ph.ph-caret-double-up:hover {
-  color: #FA8072;
+  background: linear-gradient(180deg, #FA8072, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 23px;
 }
 
 .ph.ph-copy:hover {
-  color: #FA8072;
+  background: linear-gradient(100deg, #FA8072, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
 }
 
-.ph.ph-copy:hover ~ .test{
-  color:#FA8072;
-}
-
-.footer-outer-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-color:  #5f6a6a;
-  border-width: .5px;
-  border-style: solid;
-  border-right: hidden;
-  border-left: hidden;
-  border-bottom: hidden;
+.hover-copy{
+  font-weight: bold;
 }
 
 .sourced-icons {
   margin-bottom: 5px;
   margin-right: 10px;
   align-content: end;
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-button.visible {
+  opacity: 1;
+}
+
+.cursor-highlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 90%);
+  transition: top 0.05s ease, left 0.05s ease;
+  mix-blend-mode: overlay; 
+  box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.05);
 }

@@ -1,85 +1,102 @@
-<ng-container >
-
+<ng-container>
   <div #homeContainer class="container">
 
-
-    <!-- Header Todo
-    style buttons
-    style header card
-      -shadow
-      -depth
-    Logo?
-    -->
-
-    <!-- HEADER -->
+    <!-- Header -->
     <div class="header">
-      <div id="header-flex-container">
+      <div class="header-container">
         <div>
-          <h1 (click)="scrollToTop()"
-              class="gradient-text">
-          &lt;Denicola /&gt; </h1>
+          <h1 (click)="scrollToTop()" class="gradient-text">
+            &lt;Denicola /&gt;
+          </h1>
         </div>
 
-        <div>
-          <button id="buttons" (click)="jumpToAbout()"> About Me </button>
-          <button id="buttons"  (click)="jumpToProjects()"> Tech Stack </button>
+        <div class="button-container">
+          <button id="buttons" (click)="jumpToAbout()">About Me</button>
+          <button id="buttons" (click)="jumpToStack()">Tech Stack</button>
+          <button id="buttons" (click)="jumpToExperience()">Experience</button>
+          <button id="buttons" (click)="jumpToContact()">Contact Me</button>
         </div>
-
       </div>
     </div>
 
     <!-- CONTENT -->
     <div class="content">
 
-
-    <!-- Imagery Todo
-    add Imagery
-    -->
-      <!-- Imagery -->
-      <div style="align-self: center;"> PLACHOLER FOR IMAGES</div>
-
-
-
-    <!-- Intro Todo
-    style text
-    Fix general alignment
-    Add vertical carosel for tech stack
-    -->
-
-
+      <!-- Intro -->
       <ng-container>
         <div class="intro-body">
+          <span class="intro-question"> Who Am I?</span>
           <h2 id="Intro">
             Michael Denicola
           </h2>
-          <div>
-            Full Stack Engineer
-          </div>
-          <div>
-            I'm a full stack software developer, with 3+ years of professional experience, working
-            <br>
-            with several development tools and languages, such as, Angular, Node.Js, Typescript,
-            <br>
+          <div class="intro-description">
+            I'm a full stack software developer, with 3+ years of professional experience, working <br>
+            with several development tools and languages, such as, Angular, Node.Js, Typescript, <br>
             PostgreSQL, and much more!
           </div>
         </div>
       </ng-container>
 
-   <!-- text stack -->
-    <ng-container>
+      <!-- text stack -->
+      <ng-container>
+        <div class='stack-body' id="Stack">
+          <h3 class="tech-header">Tech Stack</h3>
+          <div class="tech-body-container">
+            <div class="tech-body-text">
+              Here are a few of the technologies that I've used across my professional career to build and maintain products.<br>
+              I've worked with tools like Angular and Node.js to develop scalable web applications, and used PostgreSQL for <br>
+              managing relational data efficiently. For deployment and CI/CD, I've relied on Bitbucket Pipelines to <br>
+              streamline development workflows. These technologies have helped me deliver reliable, user-focused solutions <br>
+              across different projects.
+            </div>
+            <div class="carousel-wrapper">
+              <i (click)="prevSlide()" class="ph ph-caret-double-left"></i>
+              <div class="carousel-track">
+                <div
+                  *ngFor="let image of techStackImages; let idx = index"
+                  class="carousel-card"
+                  [ngClass]="getPositionClass(idx)">
+                  <img [src]="image" alt="Tech Logo" />
+                </div>
+              </div>
+              <i (click)="nextSlide()"class="ph ph-caret-double-right"></i>
+            </div>
+          </div>
+        </div>
+      </ng-container>
 
-      <div class='project-body' id="Projects">
-
-      <h3>Tech Stack</h3>
-
-      </div>
-
-    </ng-container>
-
+      <!-- Experience -->
+        <ng-container>
+          <div id="experience" class="experience-body">
+            <h2 id="Intro">
+              Experience
+            </h2>
+            <div class="intro-description">
+              - Full Stack Engineer
+            </div>
+            <ul class="intro-description">
+              <li> Wrote clean and efficient typescript APIs and debug to find root
+                causes of problems</li>
+              <li> Participated as a member of the company's Core Team and implemented
+                experiments aimed at improving activation rates by utilizing home-grown
+                experiment framework APIs</li>
+              <li>Wrote efficient typescript APIs to store, retrieve, and modify data</li>
+              <li>Notable Projects: </li>
+              <ul class="intro-description">
+                <li> Implemented APIs to send and receive data and created database tables
+                and functions for integration with Contentful </li>
+                <li>  Identified database table requirements and performed data migration
+                from one database table structure to another by writing a Postgres </li>
+                database script for a project aimed at moving data out of Salesforce
+                <li>  Designed and wrote Postgres database functions to dynamically pull the
+                most relevant content based on a user's attributes </li>
+                <li>  Improved several API's performance by utilizing Kafka and
+                improving database query performance </li>
+              </ul>
+            </ul>
+          </div>
+        </ng-container>
     </div>
-
-
-    <!-- Footer Todo Look into hover changing multiple elements -->
 
     <!-- FOOTER -->
     <div id="footer" class="footer">
@@ -88,10 +105,10 @@
           <div id="footer-flex-container">
             <h1 class="footer-header">Contact Me</h1>
             <!-- Contact -->
-            <div>
+            <div >
               Phone : <span id="phone-number"
-                            class="test"> (631)-346-9229 </span>
-                      <i class="ph ph-copy"
+                      [ngClass]="{ 'hover-copy': hoverPhone }"> (631)-346-9229 </span>
+                      <i class="ph ph-copy" (mouseenter)="hoverPhone = true" (mouseleave)="hoverPhone =false"
                           (click)="copyText('phone-number', phonetooltip)"
                           #phonetooltip="matTooltip"
                           [matTooltipDisabled]="true"
@@ -99,8 +116,9 @@
             </div>
             <div>
               Email : <a  href="mailto:denicolamichael99@gmail.com?subject=your title"
-                          id="email" target="_blank" style="margin-right: 3px;"> denicolamichael99&#64;gmail.com</a>
-                      <i class="ph ph-copy"
+                          id="email" target="_blank" style="margin-right: 3px;"
+                          [ngClass]="{ 'hover-copy': hoverEmail }"> denicolamichael99&#64;gmail.com</a>
+                      <i class="ph ph-copy" (mouseenter)="hoverEmail = true" (mouseleave)="hoverEmail =false"
                           (click)="copyText('email', emailtooltip)"
                           #emailtooltip="matTooltip"
                           [matTooltipDisabled]="true"
@@ -124,3 +142,4 @@
 </ng-container>
 
 <i class="ph ph-caret-double-up scroll-button" #scrollTop (click)="scrollToTop()"></i>
+<div class="cursor-highlight"></div>
