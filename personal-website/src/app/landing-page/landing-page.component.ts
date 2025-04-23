@@ -80,34 +80,14 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
     }
   }
 
-  jumpToAbout() {
-    const introSection = this.document.getElementById('Intro');
-    introSection?.scrollIntoView({
+  jumpToContent(id: string) {
+    const section = this.document.getElementById(id);
+    section?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
     });
   }
 
-  jumpToStack() {
-    const projectSection = this.document.getElementById('Stack');
-    projectSection?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  }
-
-  jumpToExperience() {
-    const projectSection = this.document.getElementById('experience');
-    projectSection?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  }
-
-  jumpToContact() {
-    const projectSection = this.document.getElementById('footer');
-    projectSection?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  }
 
 
   copyText(id: string, tooltip: MatTooltip) {
