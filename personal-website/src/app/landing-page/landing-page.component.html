@@ -50,18 +50,12 @@
               streamline development workflows. These technologies have helped me deliver reliable, user-focused solutions <br>
               across different projects.
             </div>
-            <div class="carousel-wrapper">
-              <i (click)="prevSlide()" class="ph ph-caret-double-left"></i>
-              <div class="carousel-track">
-                <div
-                  *ngFor="let image of techStackImages; let idx = index"
-                  class="carousel-card"
-                  [ngClass]="getPositionClass(idx)">
-                  <img [src]="image" alt="Tech Logo" />
-                </div>
-              </div>
-              <i (click)="nextSlide()"class="ph ph-caret-double-right"></i>
-            </div>
+  <!--
+            here lets put grid for the images
+            on hover the images can grow bigger
+            Stretch goal will be to have a description
+            under the images but not sure how that will look atm
+  -->
           </div>
         </div>
       </ng-container>
@@ -117,7 +111,7 @@
             </div>
             <div>
               Email : <a  href="mailto:denicolamichael99@gmail.com?subject=your title"
-                          id="email" target="_blank" style="margin-right: 3px;"
+                          id="email" target="_blank" style="margin-right: 3px; color: white;"
                           [ngClass]="{ 'hover-copy': hoverEmail }"> denicolamichael99&#64;gmail.com</a>
                       <i class="ph ph-copy" (mouseenter)="hoverEmail = true" (mouseleave)="hoverEmail =false"
                           (click)="copyText('email', emailtooltip)"
@@ -135,7 +129,7 @@
               </a>
             </div>
           </div>
-          <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></div>
+          <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank" style="color: white;">Icons8</a></div>
         </div>
       </ng-container>
     </div>

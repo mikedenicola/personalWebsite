@@ -12,7 +12,6 @@ import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 export class LandingPageComponent implements OnDestroy, AfterViewInit {
 
   private scrollButton: HTMLElement | undefined;
-  private autoSlideInterval!: ReturnType<typeof setInterval>;
   public hoverPhone: boolean = false;
   public hoverEmail: boolean = false;
   public currentIndex: number = 0;
@@ -38,23 +37,15 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.startAutoSlide();
       this.scrollButton = this.document.querySelector('.scroll-button') as HTMLElement;
       this.scrollContainer.nativeElement.addEventListener('scroll', () => {
         this.handleScroll();
-      });
-
-      const highlight = document.querySelector('.cursor-highlight') as HTMLElement;
-      document.addEventListener('mousemove', (e) => {
-        highlight!.style.top = `${e.clientY}px`;
-        highlight!.style.left = `${e.clientX}px`;
       });
     };
   }
 
   ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.stopAutoSlide();
       this.scrollContainer.nativeElement.removeEventListener(
         'scroll',
         this.handleScroll
@@ -100,38 +91,4 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
     });
   }
 
-
-  getPositionClass(index: number): string {
-    const total = this.techStackImages.length;
-    const offset = (index - this.currentIndex + total) % total;
-
-    if (offset === 0) return 'center';
-    if (offset <= 2) return `right-${offset}`;
-    if (offset >= total - 2) return `left-${total - offset}`;
-    return '';
-  }
-
-  nextSlide() {
-    this.stopAutoSlide();
-    this.currentIndex = (this.currentIndex + 1) % this.techStackImages.length;
-    this.startAutoSlide();
-  }
-
-  prevSlide() {
-    this.stopAutoSlide();
-    this.currentIndex = (this.currentIndex - 1 + this.techStackImages.length) % this.techStackImages.length;
-    this.startAutoSlide();
-  }
-
-  startAutoSlide(intervalMs: number = 10000): void {
-    this.autoSlideInterval = setInterval(() => {
-      this.nextSlide();
-    }, intervalMs);
-  }
-
-  stopAutoSlide(): void {
-    if (this.autoSlideInterval) {
-      clearInterval(this.autoSlideInterval);
-    };
-  }
 }
