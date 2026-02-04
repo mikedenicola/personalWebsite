@@ -1,0 +1,45 @@
+<div class="contact-page">
+  <h1 class="contact-header">Contact Me</h1>
+
+  <div class="contact-row">
+    Phone :
+    <span
+      id="phone-number"
+      [ngClass]="{ 'hover-copy': hoverPhone }"
+    >
+      (631)-346-9229
+    </span>
+    <i
+      class="ph ph-copy"
+      (mouseenter)="hoverPhone = true"
+      (mouseleave)="hoverPhone = false"
+      (click)="copyText('phone-number', phonetooltip)"
+      #phonetooltip="matTooltip"
+      [matTooltipDisabled]="true"
+      matTooltip="Copied to clipboard!"
+    ></i>
+  </div>
+
+  <div class="contact-row">
+    Email :
+    <a
+      href="mailto:denicolamichael99&#64;gmail.com?subject=your title"
+      id="email"
+      target="_blank"
+      class="contact-email"
+      [ngClass]="{ 'hover-copy': hoverEmail }"
+    >
+      denicolamichael99&#64;gmail.com
+    </a>
+    <i
+      class="ph ph-copy"
+      (mouseenter)="hoverEmail = true"
+      (mouseleave)="hoverEmail = false"
+      (click)="copyText('email', emailtooltip)"
+      #emailtooltip="matTooltip"
+      [matTooltipDisabled]="true"
+      matTooltip="Copied to clipboard!"
+    ></i>
+  </div>
+</div>
+

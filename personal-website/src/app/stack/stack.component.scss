@@ -1,0 +1,35 @@
+h3 {
+  font-size: 70px;
+  margin-bottom: 0;
+  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tech-header {
+  align-self: flex-end;
+  margin-right: 100px;
+}
+
+.tech-body-container {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.tech-body-text {
+  align-self: flex-end;
+  margin-right: 100px;
+  font-size: 18px;
+  gap: 40px;
+}
+
+.stack-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #fefdfd;
+}
+

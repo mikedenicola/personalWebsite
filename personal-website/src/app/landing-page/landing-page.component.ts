@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, ViewChild, inject} from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [MatTooltipModule, CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
@@ -12,8 +12,7 @@ import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 export class LandingPageComponent implements OnDestroy, AfterViewInit {
 
   private scrollButton: HTMLElement | undefined;
-  public hoverPhone: boolean = false;
-  public hoverEmail: boolean = false;
+  public router = inject(Router);
   public currentIndex: number = 0;
   public techStackImages: string[] = [
     'assets/angular-logo.png',
@@ -27,7 +26,6 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
   ];
 
   @ViewChild('homeContainer') scrollContainer!: ElementRef;
-  @ViewChild('tooltip') tooltip: MatTooltip | undefined;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -76,18 +74,6 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
     section?.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
-    });
-  }
-
-
-
-  copyText(id: string, tooltip: MatTooltip) {
-    const textToCopy = this.document.getElementById(id)!.textContent || '';
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      tooltip.disabled = false;
-      tooltip.show();
-      setTimeout(() => tooltip.hide(), 1000);
-      setTimeout(() => (tooltip.disabled = true), 1100);
     });
   }
 

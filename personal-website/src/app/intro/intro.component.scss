@@ -1,0 +1,31 @@
+.intro-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fefdfd;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.intro-question {
+  font-size: 18px;
+  align-items: baseline;
+}
+
+.intro-description {
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0;
+}
+
+#Intro {
+  font-size: 70px;
+  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

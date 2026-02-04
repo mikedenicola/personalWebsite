@@ -1,0 +1,37 @@
+.contact-page {
+  color: #fefdfd;
+  margin-left: 100px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-header {
+  font-size: 70px;
+  margin: 0 0 8px 0;
+  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-row {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-email {
+  color: #fefdfd;
+  text-decoration: none;
+}
+
+.ph.ph-copy:hover {
+  background: linear-gradient(100deg, #FA8072, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

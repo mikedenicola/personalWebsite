@@ -1,137 +1,75 @@
 <ng-container>
-  <div #homeContainer class="container">
+  <div class="container">
 
-    <!-- Header -->
+    <!-- Left Sidebar Header (collapsed: <D/>, hover: full <Denicola/>) -->
     <div class="header">
       <div class="header-container">
-        <div>
-          <h1 (click)="scrollToTop()" class="gradient-text">
-            &lt;Denicola /&gt;
-          </h1>
+        <div class="brand-wrap">
+          <a [routerLink]="['/']" class="gradient-text brand-link">
+            <span class="brand-short">&lt;D&#47;&gt;</span>
+            <span class="brand-full">&lt;Denicola &#47;&gt;</span>
+          </a>
         </div>
 
         <div class="button-container">
-          <button id="buttons" (click)="jumpToContent('Intro')">About Me</button>
-          <button id="buttons" (click)="jumpToContent('Stack')">Tech Stack</button>
-          <button id="buttons" (click)="jumpToContent('experience')">Experience</button>
-          <button id="buttons" (click)="jumpToContent('footer')">Contact Me</button>
+          <button id="buttons" [routerLink]="['/intro']">
+            <span class="label-short">X</span>
+            <span class="label-full">About Me</span>
+          </button>
+
+          <button id="buttons" [routerLink]="['/stack']">
+            <span class="label-short">XX</span>
+            <span class="label-full">Tech Stack</span>
+          </button>
+
+          <button id="buttons" [routerLink]="['/experience']">
+            <span class="label-short">XXX</span>
+            <span class="label-full">Experience</span>
+          </button>
+
+          <button id="buttons" [routerLink]="['/contact']">
+            <span class="label-short">XXXX</span>
+            <span class="label-full">Contact Me</span>
+          </button>
+
         </div>
       </div>
     </div>
 
-    <!-- CONTENT -->
-    <div class="content">
+    <!-- Main scrollable area -->
+    <div #homeContainer class="main">
 
-      <!-- Intro -->
-      <ng-container>
-        <div class="intro-body">
-          <span class="intro-question"> Who Am I?</span>
-          <h2 id="Intro">
-            Michael Denicola
-          </h2>
-          <div class="intro-description">
-            I'm a full stack software developer with 3+ years of professional experience, driven by a deep passion for <br>
-            building meaningful and impactful software. I love crafting solutions that not only work seamlessly but also <br>
-            genuinely improve the lives of their users. Whether it's solving complex problems or refining the small <br>
-            details, I take pride in creating software that makes a difference.
-          </div>
+      <!-- CONTENT -->
+      <div class="content">
+        <div class="welcome" *ngIf="router.url === '/'">
+          <h2 class="welcome-title">Welcome to my portfolio</h2>
+          <p class="welcome-subtitle">
+            Explore my background, tech stack, and experience using the navigation on the left.
+          </p>
         </div>
-      </ng-container>
+        <router-outlet></router-outlet>
+      </div>
 
-      <!-- text stack -->
-      <ng-container>
-        <div class='stack-body' id="Stack">
-          <h3 class="tech-header">Tech Stack</h3>
-          <div class="tech-body-container">
-            <div class="tech-body-text">
-              Here are a few of the technologies that I've used across my professional career to build and maintain products.<br>
-              I've worked with tools like Angular and Node.js to develop scalable web applications, and used PostgreSQL for <br>
-              managing relational data efficiently. For deployment and CI/CD, I've relied on Bitbucket Pipelines to <br>
-              streamline development workflows. These technologies have helped me deliver reliable, user-focused solutions <br>
-              across different projects.
-            </div>
-  <!--
-            here lets put grid for the images
-            on hover the images can grow bigger
-            Stretch goal will be to have a description
-            under the images but not sure how that will look atm
-  -->
-          </div>
-        </div>
-      </ng-container>
-
-      <!-- Experience -->
+      <!-- FOOTER -->
+      <div id="footer" class="footer">
         <ng-container>
-          <div id="experience" class="experience-body">
-            <h2 id="Intro">
-              Experience
-            </h2>
-            <div class="intro-description">
-              - Full Stack Engineer
+          <div class="footer-outer-container">
+            <div id="footer-flex-container">
+              <h1 class="footer-header">Connect</h1>
+              <!-- Links -->
+              <div class="links-container">
+                <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
+                  <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="links">
+                </a>
+                <a href="https://github.com/mikedenicola" target="_blank">
+                  <img src="assets/github-mark-white.png" alt="Github Logo" class="links">
+                </a>
+              </div>
             </div>
-            <ul class="intro-description">
-              <li> Wrote clean and efficient typescript APIs and debug to find root
-                causes of problems</li>
-              <li> Participated as a member of the company's Core Team and implemented
-                experiments aimed at improving activation rates by utilizing home-grown
-                experiment framework APIs</li>
-              <li>Wrote efficient typescript APIs to store, retrieve, and modify data</li>
-              <li>Notable Projects: </li>
-              <ul class="intro-description">
-                <li> Implemented APIs to send and receive data and created database tables
-                and functions for integration with Contentful </li>
-                <li>  Identified database table requirements and performed data migration
-                from one database table structure to another by writing a Postgres </li>
-                database script for a project aimed at moving data out of Salesforce
-                <li>  Designed and wrote Postgres database functions to dynamically pull the
-                most relevant content based on a user's attributes </li>
-                <li>  Improved several API's performance by utilizing Kafka and
-                improving database query performance </li>
-              </ul>
-            </ul>
+            <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank" style="color: white;">Icons8</a></div>
           </div>
         </ng-container>
-    </div>
-
-    <!-- FOOTER -->
-    <div id="footer" class="footer">
-      <ng-container>
-        <div class="footer-outer-container">
-          <div id="footer-flex-container">
-            <h1 class="footer-header">Contact Me</h1>
-            <!-- Contact -->
-            <div >
-              Phone : <span id="phone-number"
-                      [ngClass]="{ 'hover-copy': hoverPhone }"> (631)-346-9229 </span>
-                      <i class="ph ph-copy" (mouseenter)="hoverPhone = true" (mouseleave)="hoverPhone =false"
-                          (click)="copyText('phone-number', phonetooltip)"
-                          #phonetooltip="matTooltip"
-                          [matTooltipDisabled]="true"
-                          matTooltip="Copied to clipboard!"></i>
-            </div>
-            <div>
-              Email : <a  href="mailto:denicolamichael99@gmail.com?subject=your title"
-                          id="email" target="_blank" style="margin-right: 3px; color: white;"
-                          [ngClass]="{ 'hover-copy': hoverEmail }"> denicolamichael99&#64;gmail.com</a>
-                      <i class="ph ph-copy" (mouseenter)="hoverEmail = true" (mouseleave)="hoverEmail =false"
-                          (click)="copyText('email', emailtooltip)"
-                          #emailtooltip="matTooltip"
-                          [matTooltipDisabled]="true"
-                          matTooltip="Copied to clipboard!"></i>
-            </div>
-           <!-- Links -->
-            <div class="links-container">
-              <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
-                <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="links">
-              </a>
-              <a href="https://github.com/mikedenicola" target="_blank">
-                <img src="assets/github-mark-white.png" alt="Github Logo" class="links">
-              </a>
-            </div>
-          </div>
-          <div class="sourced-icons"> Icons by <a href="https://icons8.com/" target="_blank" style="color: white;">Icons8</a></div>
-        </div>
-      </ng-container>
+      </div>
     </div>
   </div>
 </ng-container>
