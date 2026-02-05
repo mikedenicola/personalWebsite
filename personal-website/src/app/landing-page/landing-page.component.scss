@@ -4,11 +4,15 @@ h1 {
 }
 
 .header {
-  height: 100vh;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
   width: 72px;
   min-width: 72px;
-  background-color: #151414;
-  border-right: .5px solid #5f6a6a;
+  max-height: 100%;
+  background-color: #1a1919;
+  border-right: none;
+  border-radius: 20px;
   color: #fefdfd;
   z-index: 1000;
   display: flex;
@@ -16,10 +20,9 @@ h1 {
   justify-content: flex-start;
   padding: 1.25rem 0;
   box-sizing: border-box;
-  position: sticky;
-  top: 0;
   overflow: hidden;
   transition: width 0.25s ease, min-width 0.25s ease;
+  margin: 20px;
 }
 
 .header:hover {
@@ -131,7 +134,7 @@ h1 {
   gap: 10px;
   color: #fefdfd;
   margin-left: 100px;
-  margin-top: 100px;
+  margin-top: 140px;
 }
 .intro-question {
   font-size: 18px;
@@ -162,6 +165,7 @@ h2 {
   gap: 10px;
   color: #fefdfd;
   margin-left: 100px;
+  margin-top: 140px;
   margin-bottom: 100px;
 }
 
@@ -185,6 +189,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 100px;
+  margin-top: 140px;
 }
 
 .tech-body-text {
@@ -205,36 +210,56 @@ h3 {
 .welcome {
   color: #fefdfd;
   margin-left: 100px;
-  margin-top: 100px;
+  margin-top: 140px;
+  max-width: 800px;
 }
 
 .welcome-title {
   font-size: 72px;
-  margin: 0 0 16px 0;
+  margin: 0 0 24px 0;
   background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.1;
 }
 
 .welcome-subtitle {
-  font-size: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #b0b0b0;
+  font-weight: 500;
+}
+
+.welcome-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #d0d0d0;
 }
 
 
 
 // Footer
+.footer {
+  width: 100%;
+  min-height: 80px;
+}
+
 .footer-outer-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-color:  #5f6a6a;
-  border-width: .5px;
-  border-style: solid;
-  border-right: hidden;
-  border-left: hidden;
-  border-bottom: hidden;
+  background-color: #1a1919;
+  border: none;
+  padding: 20px;
+}
+
+.footer-header {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  color: #fefdfd;
 }
 
 #footer-flex-container {
@@ -294,3 +319,12 @@ h3 {
   opacity: 1;
 }
 
+.wave-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}

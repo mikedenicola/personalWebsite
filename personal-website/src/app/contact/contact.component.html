@@ -1,45 +1,60 @@
 <div class="contact-page">
-  <h1 class="contact-header">Contact Me</h1>
+  <h1 class="contact-header">Get In Touch</h1>
 
-  <div class="contact-row">
-    Phone :
-    <span
-      id="phone-number"
-      [ngClass]="{ 'hover-copy': hoverPhone }"
-    >
-      (631)-346-9229
-    </span>
-    <i
-      class="ph ph-copy"
-      (mouseenter)="hoverPhone = true"
-      (mouseleave)="hoverPhone = false"
-      (click)="copyText('phone-number', phonetooltip)"
-      #phonetooltip="matTooltip"
-      [matTooltipDisabled]="true"
-      matTooltip="Copied to clipboard!"
-    ></i>
-  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+    <div class="form-group">
+      <label for="email">Your Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email address"
+        [class.invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+      />
+      <span class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+        Please enter a valid email address
+      </span>
+    </div>
 
-  <div class="contact-row">
-    Email :
-    <a
-      href="mailto:denicolamichael99&#64;gmail.com?subject=your title"
-      id="email"
-      target="_blank"
-      class="contact-email"
-      [ngClass]="{ 'hover-copy': hoverEmail }"
-    >
-      denicolamichael99&#64;gmail.com
-    </a>
-    <i
-      class="ph ph-copy"
-      (mouseenter)="hoverEmail = true"
-      (mouseleave)="hoverEmail = false"
-      (click)="copyText('email', emailtooltip)"
-      #emailtooltip="matTooltip"
-      [matTooltipDisabled]="true"
-      matTooltip="Copied to clipboard!"
-    ></i>
-  </div>
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input
+        type="text"
+        id="subject"
+        formControlName="subject"
+        placeholder="Enter subject"
+        [class.invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
+      />
+      <span class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+        Subject is required
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="label-row">
+        <label for="message">Message</label>
+        <span class="word-count" [class.over-limit]="messageWordCount > MAX_WORDS">
+          {{ messageWordCount }} / {{ MAX_WORDS }} words
+        </span>
+      </div>
+      <textarea
+        id="message"
+        formControlName="message"
+        placeholder="Enter your message"
+        rows="10"
+        [class.invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+      ></textarea>
+      <span class="error-message" *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">
+        Message is required
+      </span>
+      <span class="error-message" *ngIf="contactForm.get('message')?.hasError('wordLimit')">
+        Message exceeds {{ MAX_WORDS }} word limit
+      </span>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+      Send Message
+    </button>
+  </form>
 </div>
 
