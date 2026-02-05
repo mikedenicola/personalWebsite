@@ -1,3 +1,21 @@
+// CSS Variables
+:host {
+  --primary-gradient: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  --text-light: #fefdfd;
+  --bg-dark: #1a1919;
+  --text-gray: #d0d0d0;
+  --text-gray-light: #b0b0b0;
+}
+
+// Reusable gradient text class
+.gradient-text {
+  background: var(--primary-gradient);
+  background-size: 200%;
+  background-position: left center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 // Header (left sidebar) — collapsed by default, expands on hover
 h1 {
   margin: 0;
@@ -10,10 +28,10 @@ h1 {
   width: 72px;
   min-width: 72px;
   max-height: 100%;
-  background-color: #1a1919;
+  background-color: var(--bg-dark);
   border-right: none;
   border-radius: 20px;
-  color: #fefdfd;
+  color: var(--text-light);
   z-index: 1000;
   display: flex;
   align-items: flex-start;
@@ -48,23 +66,15 @@ h1 {
 }
 
 .brand-link {
+  @extend .gradient-text;
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
-}
-
-.gradient-text,
-.brand-link {
-  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
-  background-size: 200%;
-  background-position: left center;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   transition: background-position 0.4s ease;
-}
 
-.brand-link:hover {
-  background-position: right center;
+  &:hover {
+    background-position: right center;
+  }
 }
 
 .label-full {
@@ -111,38 +121,43 @@ h1 {
   background: none;
   border: none;
   font-size: 15px;
-  color: #fefdfd;
+  color: var(--text-light);
   cursor: pointer;
   min-width: 120px;
   text-align: left;
   padding: 0;
   white-space: nowrap;
+
+  &:hover {
+    background: linear-gradient(70deg, #FA8072, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 16px;
+  }
 }
 
-#buttons:hover {
-  background: linear-gradient(70deg, #FA8072, #7873f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.4s ease;
-  font-size: 16px;
-}
-
-// Intro
-.intro-body {
+// Intro & Experience - shared styles
+.intro-body,
+.experience-body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: #fefdfd;
+  color: var(--text-light);
   margin-left: 100px;
   margin-top: 140px;
 }
-.intro-question {
-  font-size: 18px;
-  align-items: baseline;
+
+.experience-body {
+  margin-bottom: 100px;
 }
 
+.intro-question,
 .intro-description {
   font-size: 18px;
+}
+
+.intro-question {
+  align-items: baseline;
 }
 
 h2 {
@@ -150,34 +165,15 @@ h2 {
 }
 
 #Intro {
+  @extend .gradient-text;
   font-size: 70px;
-  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
-  background-size: 200%;
-  background-position: left center;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-//Experience
-.experience-body {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #fefdfd;
-  margin-left: 100px;
-  margin-top: 140px;
-  margin-bottom: 100px;
 }
 
 // Stack
 h3 {
- font-size: 70px;
- margin-bottom: 0;
- background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
- background-size: 200%;
- background-position: left center;
- -webkit-background-clip: text;
- -webkit-text-fill-color: transparent;
+  @extend .gradient-text;
+  font-size: 70px;
+  margin-bottom: 0;
 }
 
 .tech-header {
@@ -203,32 +199,28 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  color: #fefdfd;
+  color: var(--text-light);
 }
 
 // Landing page welcome
 .welcome {
-  color: #fefdfd;
+  color: var(--text-light);
   margin-left: 100px;
   margin-top: 140px;
   max-width: 800px;
 }
 
 .welcome-title {
+  @extend .gradient-text;
   font-size: 72px;
   margin: 0 0 24px 0;
-  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
-  background-size: 200%;
-  background-position: left center;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   line-height: 1.1;
 }
 
 .welcome-subtitle {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #b0b0b0;
+  color: var(--text-gray-light);
   font-weight: 500;
 }
 
@@ -236,7 +228,7 @@ h3 {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 16px;
-  color: #d0d0d0;
+  color: var(--text-gray);
 }
 
 
@@ -251,7 +243,7 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #1a1919;
+  background-color: var(--bg-dark);
   border: none;
   padding: 20px;
 }
@@ -259,7 +251,7 @@ h3 {
 .footer-header {
   font-size: 1.5rem;
   margin: 0 0 10px 0;
-  color: #fefdfd;
+  color: var(--text-light);
 }
 
 #footer-flex-container {
@@ -283,14 +275,14 @@ h3 {
 
 .ph.ph-caret-double-up {
   font-size: 20px;
-  color: #fefdfd;
-}
+  color: var(--text-light);
 
-.ph.ph-caret-double-up:hover {
-  background: linear-gradient(180deg, #FA8072, #7873f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 23px;
+  &:hover {
+    background: linear-gradient(180deg, #FA8072, #7873f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 23px;
+  }
 }
 
 .ph.ph-copy:hover {
