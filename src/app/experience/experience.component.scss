@@ -4,7 +4,24 @@
   gap: 10px;
   color: #fefdfd;
   margin-left: 100px;
+  margin-right: 40px;
+  margin-top: 60px;
   margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .experience-body {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  #Intro {
+    font-size: 48px;
+  }
+
+  .intro-description {
+    font-size: 16px;
+  }
 }
 
 .intro-description {
