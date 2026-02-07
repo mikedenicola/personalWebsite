@@ -12,26 +12,25 @@
         </div>
 
         <div class="button-container">
-          <button id="buttons" [routerLink]="['/intro']">
-            <span class="label-short">X</span>
-            <span class="label-full">About Me</span>
-          </button>
+          <a class="nav-item" [routerLink]="['/intro']">
+            <img src="assets/aboutMe.svg" alt="About Me" class="nav-icon">
+            <span class="nav-label">About Me</span>
+          </a>
 
-          <button id="buttons" [routerLink]="['/stack']">
-            <span class="label-short">XX</span>
-            <span class="label-full">Tech Stack</span>
-          </button>
+          <a class="nav-item" [routerLink]="['/experience']">
+            <img src="assets/experience.svg" alt="Experience" class="nav-icon">
+            <span class="nav-label">Experience</span>
+          </a>
 
-          <button id="buttons" [routerLink]="['/experience']">
-            <span class="label-short">XXX</span>
-            <span class="label-full">Experience</span>
-          </button>
+          <a class="nav-item" [routerLink]="['/stack']">
+            <img src="assets/techStack.svg" alt="Tech Stack" class="nav-icon">
+            <span class="nav-label">Tech Stack</span>
+          </a>
 
-          <button id="buttons" [routerLink]="['/contact']">
-            <span class="label-short">XXXX</span>
-            <span class="label-full">Contact Me</span>
-          </button>
-
+          <a class="nav-item" [routerLink]="['/contact']">
+            <img src="assets/contactMe.svg" alt="Contact Me" class="nav-icon">
+            <span class="nav-label">Contact Me</span>
+          </a>
         </div>
       </div>
     </div>
@@ -42,19 +41,34 @@
       <!-- CONTENT -->
       <div class="content">
         <div class="welcome" *ngIf="router.url === '/'">
+          <span class="welcome-label">Welcome to my portfolio</span>
           <h2 class="welcome-title">Hi, I'm Michael Denicola</h2>
           <p class="welcome-subtitle">
-            A passionate full-stack developer crafting elegant solutions to complex problems.
+            Full-Stack Developer crafting elegant solutions to complex problems.
           </p>
-          <p class="welcome-description">
-            I specialize in building modern web applications with cutting-edge technologies.
-            From responsive front-ends to scalable back-ends, I bring ideas to life with clean,
-            efficient code and thoughtful design.
-          </p>
-          <p class="welcome-description">
-            Explore my background, tech stack, and experience using the navigation on the left.
-            Let's build something amazing together.
-          </p>
+
+          <div class="welcome-content">
+            <p class="welcome-description">
+              I specialize in building modern web applications with cutting-edge technologies. From responsive front-ends to scalable back-ends, I bring ideas to life with clean, efficient code and thoughtful design.
+            </p>
+          </div>
+
+          <div class="cta-section">
+            <button class="cta-primary" [routerLink]="['/experience']">View My Experience</button>
+            <button class="cta-secondary" [routerLink]="['/contact']">Get In Touch</button>
+          </div>
+
+          <div class="welcome-stats">
+            <div class="stat-item">
+              <span class="stat-number">4+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Full Stack</span>
+              <span class="stat-label">Development</span>
+            </div>
+          </div>
         </div>
         <router-outlet></router-outlet>
       </div>
@@ -62,22 +76,23 @@
 
     <!-- FOOTER -->
     <div id="footer" class="footer">
-      <ng-container>
-        <div class="footer-outer-container">
-          <div id="footer-flex-container">
-            <h1 class="footer-header">Connect</h1>
-            <!-- Links -->
-            <div class="links-container">
-              <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank">
-                <img src="assets/LI-In-Bug.png" alt="linkdIn Logo" class="links">
-              </a>
-              <a href="https://github.com/mikedenicola" target="_blank">
-                <img src="assets/github-mark-white.png" alt="Github Logo" class="links">
-              </a>
-            </div>
+      <div class="footer-outer-container">
+        <div class="footer-left">
+          <span class="footer-brand">&lt;Denicola &#47;&gt;</span>
+          <span class="footer-copyright">&copy; {{ currentYear }} Michael Denicola</span>
+        </div>
+        <div class="footer-right">
+          <h2 class="footer-header">Connect</h2>
+          <div class="links-container">
+            <a href="https://www.linkedin.com/in/michael-denicola-728973169/" target="_blank" class="social-link" aria-label="LinkedIn">
+              <img src="assets/LI-In-Bug.png" alt="LinkedIn" class="links">
+            </a>
+            <a href="https://github.com/mikedenicola" target="_blank" class="social-link" aria-label="GitHub">
+              <img src="assets/github-mark-white.png" alt="GitHub" class="links">
+            </a>
           </div>
         </div>
-      </ng-container>
+      </div>
     </div>
   </div>
 </ng-container>

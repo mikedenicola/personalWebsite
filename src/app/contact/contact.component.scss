@@ -9,11 +9,17 @@
 .contact-header {
   font-size: 70px;
   margin: 0 0 40px 0;
-  background: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  background: linear-gradient(90deg, #7873f5, #FA8072, #7873f5);
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-position 0.4s ease;
+  cursor: default;
+
+  &:hover {
+    background-position: right center;
+  }
 }
 
 .contact-form {

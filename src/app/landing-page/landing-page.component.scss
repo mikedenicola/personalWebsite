@@ -1,6 +1,6 @@
 // CSS Variables
 :host {
-  --primary-gradient: linear-gradient(90deg, #FA8072, #7873f5, #FA8072);
+  --primary-gradient: linear-gradient(90deg, #7873f5, #FA8072, #7873f5);
   --text-light: #fefdfd;
   --bg-dark: #1a1919;
   --text-gray: #d0d0d0;
@@ -53,16 +53,23 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-width: 168px;
-  padding-left: 12px;
+  width: 100%;
+  align-items: center;
+  padding: 0;
 }
 
 .header:hover .header-container {
-  padding-left: 0;
+  align-items: flex-start;
+  min-width: 168px;
 }
 
 .brand-wrap {
   flex-shrink: 0;
+  text-align: center;
+}
+
+.header:hover .brand-wrap {
+  text-align: left;
 }
 
 .brand-link {
@@ -77,17 +84,6 @@ h1 {
   }
 }
 
-.label-full {
-  display: none;
-}
-
-.header:hover .label-full {
-  display: inline;
-}
-
-.header:hover .label-short {
-  display: none;
-}
 
 .brand-short {
   display: block;
@@ -114,26 +110,60 @@ h1 {
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  width: 100%;
+  align-items: center;
 }
 
-#buttons {
-  background: none;
-  border: none;
-  font-size: 15px;
-  color: var(--text-light);
+.header:hover .button-container {
+  align-items: flex-start;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
   cursor: pointer;
-  min-width: 120px;
-  text-align: left;
-  padding: 0;
-  white-space: nowrap;
+  transition: transform 0.3s ease;
 
   &:hover {
-    background: linear-gradient(70deg, #FA8072, #7873f5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 16px;
+    transform: scale(1.05);
+
+    .nav-icon {
+      filter: brightness(0) saturate(100%) invert(58%) sepia(52%) saturate(2064%) hue-rotate(212deg) brightness(101%) contrast(92%);
+    }
+
+    .nav-label {
+      background: linear-gradient(70deg, #7873f5, #FA8072, #7873f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
+}
+
+.header:hover .nav-item {
+  align-items: flex-start;
+}
+
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.nav-label {
+  display: none;
+  font-size: 14px;
+  color: var(--text-light);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.header:hover .nav-label {
+  display: block;
 }
 
 // Intro & Experience - shared styles
@@ -167,18 +197,27 @@ h2 {
 #Intro {
   @extend .gradient-text;
   font-size: 70px;
+  transition: background-position 0.4s ease;
+  cursor: default;
+
+  &:hover {
+    background-position: right center;
+  }
 }
 
 // Stack
-h3 {
+.tech-header {
   @extend .gradient-text;
   font-size: 70px;
   margin-bottom: 0;
-}
-
-.tech-header {
   align-self: flex-end;
   margin-right: 100px;
+  transition: background-position 0.4s ease;
+  cursor: default;
+
+  &:hover {
+    background-position: right center;
+  }
 }
 
 .tech-body-container {
@@ -211,6 +250,117 @@ h3 {
   max-width: 800px;
 }
 
+.welcome-label {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--text-gray-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.welcome-title {
+  @extend .gradient-text;
+  font-size: 72px;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.welcome-subtitle {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: var(--text-gray-light);
+  font-weight: 500;
+}
+
+.welcome-content {
+  margin-bottom: 32px;
+}
+
+.welcome-description {
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--text-gray);
+}
+
+// CTA Buttons
+.cta-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.cta-primary {
+  background: linear-gradient(90deg, #7873f5, #FA8072);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid #2a2929;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    border-color: #7873f5;
+    transform: translateY(-2px);
+  }
+}
+
+// Stats section
+.welcome-stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  border-top: 1px solid #2a2929;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #7873f5, #FA8072);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-gray-light);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #2a2929;
+}
+
+// Responsive
 @media (max-width: 768px) {
   .welcome {
     margin-left: 40px;
@@ -228,27 +378,44 @@ h3 {
   .welcome-description {
     font-size: 16px;
   }
-}
 
-.welcome-title {
-  @extend .gradient-text;
-  font-size: 72px;
-  margin: 0 0 24px 0;
-  line-height: 1.1;
-}
+  .cta-section {
+    flex-direction: column;
+  }
 
-.welcome-subtitle {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: var(--text-gray-light);
-  font-weight: 500;
-}
+  .cta-primary,
+  .cta-secondary {
+    width: 100%;
+    text-align: center;
+  }
 
-.welcome-description {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  color: var(--text-gray);
+  .welcome-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .stat-item {
+    min-width: calc(50% - 10px);
+  }
+
+  .footer-outer-container {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
 }
 
 
@@ -256,41 +423,85 @@ h3 {
 // Footer
 .footer {
   width: 100%;
-  min-height: 80px;
+  border-top: 1px solid #2a2929;
 }
 
 .footer-outer-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--bg-dark);
-  border: none;
-  padding: 20px;
+  padding: 30px 40px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand {
+  @extend .gradient-text;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: var(--text-gray-light);
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 .footer-header {
-  font-size: 1.5rem;
-  margin: 0 0 10px 0;
-  color: var(--text-light);
-}
+  @extend .gradient-text;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  background-size: 200%;
+  background-position: left center;
+  transition: background-position 0.4s ease;
+  cursor: default;
 
-#footer-flex-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding-left: 10px;
+  &:hover {
+    background-position: right center;
+  }
 }
 
 .links {
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 28px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .links-container {
-  margin-top: 10px;
   display: flex;
-  gap: 10px;
-  margin-bottom: 5px;
+  gap: 16px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: rgba(120, 115, 245, 0.15);
+    transform: translateY(-2px);
+
+    .links {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .ph.ph-caret-double-up {
@@ -298,7 +509,7 @@ h3 {
   color: var(--text-light);
 
   &:hover {
-    background: linear-gradient(180deg, #FA8072, #7873f5);
+    background: linear-gradient(180deg, #7873f5, #FA8072, #7873f5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 23px;
@@ -306,7 +517,7 @@ h3 {
 }
 
 .ph.ph-copy:hover {
-  background: linear-gradient(100deg, #FA8072, #7873f5);
+  background: linear-gradient(100deg, #7873f5, #FA8072, #7873f5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

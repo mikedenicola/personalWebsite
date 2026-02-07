@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LandingPageComponent,
-    title: '<Denicola/> / Portfolio',
+    title: '<Denicola/> Portfolio',
     children: [
       { path: 'intro', component: IntroComponent },
       { path: 'stack', component: StackComponent },

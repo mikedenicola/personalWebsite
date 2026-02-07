@@ -15,6 +15,7 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
 
   public router = inject(Router);
   public currentIndex: number = 0;
+  public currentYear: number = new Date().getFullYear();
 
   @ViewChild('homeContainer') scrollContainer!: ElementRef;
 
