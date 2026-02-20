@@ -3,11 +3,10 @@
   flex-direction: column;
   gap: 32px;
   color: #fefdfd;
-  margin-left: 200px;
-  margin-right: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
   margin-top: 60px;
   margin-bottom: 100px;
-  max-width: 900px;
 }
 
 .intro-question {
@@ -23,11 +22,12 @@ h2 {
 }
 
 #Intro {
-  font-size: 70px;
+  font-size: 80px;
   background: linear-gradient(90deg, #7873f5, #FA8072, #7873f5);
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: background-position 0.4s ease;
   cursor: default;
@@ -63,6 +63,7 @@ h2 {
   background: linear-gradient(.25turn, #7873f5, 15%, #FA8072);
   background-size: 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -93,6 +94,7 @@ h2 {
   font-weight: 700;
   background: linear-gradient(90deg, #7873f5, #FA8072);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -113,6 +115,7 @@ h2 {
   background: linear-gradient(.25turn, #7873f5, 15%, #FA8072);
   background-size: 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -131,8 +134,8 @@ h2 {
 // Responsive
 @media (max-width: 1024px) {
   .intro-body {
-    margin-left: 100px;
-    margin-right: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 
   .highlights-grid {

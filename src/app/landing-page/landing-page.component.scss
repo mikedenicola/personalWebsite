@@ -13,6 +13,7 @@
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -138,6 +139,7 @@ h1 {
     .nav-label {
       background: linear-gradient(70deg, #7873f5, #FA8072, #7873f5);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
@@ -244,10 +246,9 @@ h2 {
 // Landing page welcome
 .welcome {
   color: var(--text-light);
-  margin-left: 100px;
-  margin-right: 40px;
+  margin-left: 60px;
+  margin-right: 60px;
   margin-top: 140px;
-  max-width: 800px;
 }
 
 .welcome-label {
@@ -346,6 +347,7 @@ h2 {
   font-weight: 700;
   background: linear-gradient(90deg, #7873f5, #FA8072);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -511,21 +513,10 @@ h2 {
   &:hover {
     background: linear-gradient(180deg, #7873f5, #FA8072, #7873f5);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 23px;
   }
-}
-
-.ph.ph-copy:hover {
-  background: linear-gradient(100deg, #7873f5, #FA8072, #7873f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.sourced-icons {
-  margin-bottom: 5px;
-  margin-right: 10px;
-  align-content: end;
 }
 
 .scroll-button {

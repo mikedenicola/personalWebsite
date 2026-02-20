@@ -14,7 +14,6 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
   private scrollButton: HTMLElement | undefined;
 
   public router = inject(Router);
-  public currentIndex: number = 0;
   public currentYear: number = new Date().getFullYear();
 
   @ViewChild('homeContainer') scrollContainer!: ElementRef;
@@ -50,22 +49,4 @@ export class LandingPageComponent implements OnDestroy, AfterViewInit {
       this.scrollButton?.classList.remove('visible');
     }
   };
-
-  scrollToTop() {
-    if (this.scrollContainer?.nativeElement) {
-      this.scrollContainer.nativeElement.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
-  }
-
-  jumpToContent(id: string) {
-    const section = this.document.getElementById(id);
-    section?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-    });
-  }
-
 }

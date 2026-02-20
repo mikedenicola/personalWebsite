@@ -13,6 +13,7 @@
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: background-position 0.4s ease;
   cursor: default;

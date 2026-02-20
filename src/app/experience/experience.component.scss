@@ -3,17 +3,16 @@
   flex-direction: column;
   gap: 40px;
   color: #fefdfd;
-  margin-left: 200px;
-  margin-right: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
   margin-top: 60px;
   margin-bottom: 100px;
-  max-width: 900px;
 }
 
 @media (max-width: 1024px) {
   .experience-body {
-    margin-left: 100px;
-    margin-right: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 
@@ -51,6 +50,7 @@ h2 {
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
   transition: background-position 0.4s ease;
@@ -80,6 +80,7 @@ h2 {
   background: linear-gradient(.25turn,  #7873f5, 15%, #FA8072);
   background-size: 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -133,6 +134,7 @@ h2 {
   background: linear-gradient(.25turn,  #7873f5, 5%, #FA8072);
   background-size: 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

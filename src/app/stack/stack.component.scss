@@ -3,11 +3,10 @@
   flex-direction: column;
   gap: 16px;
   color: #fefdfd;
-  margin-left: 200px;
-  margin-right: 100px;
+  margin-left: 60px;
+  margin-right: 60px;
   margin-top: 60px;
   margin-bottom: 100px;
-  max-width: 900px;
 }
 
 .stack-label {
@@ -25,6 +24,7 @@
   background-size: 200%;
   background-position: left center;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: background-position 0.4s ease;
   cursor: default;
@@ -67,6 +67,7 @@
   background: linear-gradient(.25turn, #7873f5, 15%, #FA8072);
   background-size: 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -94,8 +95,8 @@
 // Responsive
 @media (max-width: 1024px) {
   .stack-body {
-    margin-left: 100px;
-    margin-right: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 
@@ -141,8 +142,7 @@
   max-width: 1000px;
   height: 900px;
   overflow: hidden;
-  margin: 40px 0 0 auto;
-  margin-right: -100px;
+  margin-left: 100px;
   position: relative;
 
   &::before,
