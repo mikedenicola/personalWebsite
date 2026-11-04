@@ -40,36 +40,35 @@
 
       <!-- CONTENT -->
       <div class="content">
-        <div class="welcome" *ngIf="router.url === '/'">
-          <span class="welcome-label">Welcome to my portfolio</span>
-          <h2 class="welcome-title">Hi, I'm Michael Denicola</h2>
-          <p class="welcome-subtitle">
-            Full-Stack Developer crafting elegant solutions to complex problems.
-          </p>
-
-          <div class="welcome-content">
-            <p class="welcome-description">
-              I specialize in building modern web applications with cutting-edge technologies. From responsive front-ends to scalable back-ends, I bring ideas to life with clean, efficient code and thoughtful design.
+        @if (router.url === '/') {
+          <div class="welcome">
+            <span class="welcome-label">Welcome to my portfolio</span>
+            <h2 class="welcome-title">Hi, I'm Michael Denicola</h2>
+            <p class="welcome-subtitle">
+              Full-Stack Developer crafting elegant solutions to complex problems.
             </p>
-          </div>
-
-          <div class="cta-section">
-            <button class="cta-primary" [routerLink]="['/experience']">View My Experience</button>
-            <button class="cta-secondary" [routerLink]="['/contact']">Get In Touch</button>
-          </div>
-
-          <div class="welcome-stats">
-            <div class="stat-item">
-              <span class="stat-number">4+</span>
-              <span class="stat-label">Years Experience</span>
+            <div class="welcome-content">
+              <p class="welcome-description">
+                I specialize in building modern web applications with cutting-edge technologies. From responsive front-ends to scalable back-ends, I bring ideas to life with clean, efficient code and thoughtful design.
+              </p>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-number">Full Stack</span>
-              <span class="stat-label">Development</span>
+            <div class="cta-section">
+              <button class="cta-primary" [routerLink]="['/experience']">View My Experience</button>
+              <button class="cta-secondary" [routerLink]="['/contact']">Get In Touch</button>
+            </div>
+            <div class="welcome-stats">
+              <div class="stat-item">
+                <span class="stat-number">4+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">Full Stack</span>
+                <span class="stat-label">Development</span>
+              </div>
             </div>
           </div>
-        </div>
+        }
         <router-outlet></router-outlet>
       </div>
     </div>

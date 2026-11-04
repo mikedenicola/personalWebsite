@@ -10,10 +10,12 @@
         formControlName="email"
         placeholder="Enter your email address"
         [class.invalid]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-      />
-      <span class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-        Please enter a valid email address
-      </span>
+        />
+      @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+        <span class="error-message">
+          Please enter a valid email address
+        </span>
+      }
     </div>
 
     <div class="form-group">
@@ -24,10 +26,12 @@
         formControlName="subject"
         placeholder="Enter subject"
         [class.invalid]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
-      />
-      <span class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-        Subject is required
-      </span>
+        />
+      @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
+        <span class="error-message">
+          Subject is required
+        </span>
+      }
     </div>
 
     <div class="form-group">
@@ -44,12 +48,16 @@
         rows="10"
         [class.invalid]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
       ></textarea>
-      <span class="error-message" *ngIf="contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched">
-        Message is required
-      </span>
-      <span class="error-message" *ngIf="contactForm.get('message')?.hasError('wordLimit')">
-        Message exceeds {{ MAX_WORDS }} word limit
-      </span>
+      @if (contactForm.get('message')?.hasError('required') && contactForm.get('message')?.touched) {
+        <span class="error-message">
+          Message is required
+        </span>
+      }
+      @if (contactForm.get('message')?.hasError('wordLimit')) {
+        <span class="error-message">
+          Message exceeds {{ MAX_WORDS }} word limit
+        </span>
+      }
     </div>
 
     <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">

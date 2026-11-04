@@ -1,12 +1,12 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, ViewChild, inject} from '@angular/core';
-import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, ViewChild, inject, DOCUMENT, ChangeDetectionStrategy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.scss'
+    selector: 'app-landing-page',
+    imports: [RouterLink, RouterOutlet],
+    templateUrl: './landing-page.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './landing-page.component.scss'
 })
 
 export class LandingPageComponent implements OnDestroy, AfterViewInit {
