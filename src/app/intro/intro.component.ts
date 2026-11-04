@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
 
 @Component({
-  selector: 'app-intro',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './intro.component.html',
-  styleUrl: './intro.component.scss'
+    selector: 'app-intro',
+    imports: [],
+    templateUrl: './intro.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './intro.component.scss'
 })
 export class IntroComponent {}
 
